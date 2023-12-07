@@ -1,0 +1,181 @@
+*{
+    box-sizing: border-box;
+}
+a{
+    text-decoration: none;
+}
+a:hover{
+    color: white;
+}
+body{
+    width: 100%;
+    min-height: 100vh;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+}
+
+.box{
+    position: relative;
+    width: 25rem;
+    height: 30rem;
+    background-color: green;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    user-select: none;
+}
+.box::before {
+    /* ensure that the width of the after and the before match the box*/
+    content: '';
+    position: absolute;
+    left: -50%;
+    top: -50%;
+    width: 30rem;
+    height: 35rem;/*initially 30 rem */
+    /* the linear gradient has three lines */
+    background-image: linear-gradient(0deg,transparent,blue,blue);
+    transform-origin: bottom right;
+    animation: animatedForms 6s linear infinite;
+}
+.box::after {
+    content: '';
+    position: absolute;
+    width: 25rem;
+    height: 30rem;
+    right: -50%;
+    bottom: -50%;
+    background-image: linear-gradient(0deg,transparent,blue,blue);
+    transform-origin: top left;
+    animation: animatedForms 6s linear infinite;
+}
+.otp-verification{
+    /*There's no width and no height*/
+    position: absolute;
+    /*inset is shorthand for padding/margin */
+    inset: 4px;
+    background-color: white;
+    color:white;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 2rem;
+    padding: 2rem 2rem;
+    transition: all 0.3s;
+}
+@keyframes animatedForms{
+    0%{
+        transform: rotate(0deg);
+        background-image: linear-gradient(0deg,transparent,blue,blue);
+    }
+    50%{
+        transform: rotate(180deg);
+        background-image: linear-gradient(0deg,transparent,rgba(150,0,255,1),rgba(255,0,255));
+
+    }
+    100%{
+        transform: rotate(360deg);
+        background-image: linear-gradient(0deg,transparent,rgba(150,0,255,1),rgba(150,50,255));
+    }
+}
+
+.input-div{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.input-div input{
+    width: 100%;
+    height: 2.8rem;
+    border-radius: 0.3rem;
+    margin: auto;
+    color: black;
+    font-weight: bolder;
+    outline: none;
+    border: none;
+    border-bottom: blue;
+    background-color: transparent;
+    border-width: 0.5rem;
+    padding-left: 1rem;
+    box-shadow: 0.1rem 0.1rem 0.25rem 0rem black;
+}
+
+input:focus ~ label{
+    display: block;
+    visibility: visible;    
+}
+.input-div input::placeholder{
+    color: rgba(0,0,255,0.7);
+}
+.input-div label{
+    font-weight: bold;
+    position: absolute;
+    top: -1.2rem;
+    left: 0rem;
+    display: none;
+    visibility: hidden;
+    color: blue;
+}
+.login-div button,.sign-up-div button,.otp-verification button {
+    width: 100%;
+    height: 2.8rem;
+    font-weight: bolder;
+    font-size: 1rem;
+    color: blue;
+    border-radius: 2rem;
+}
+.login-div button:hover,.sign-up-div button:hover,.otp-verification button:hover{
+    background-color: blue;
+    color: white;
+}
+
+.login-div .options-text,.sign-up-div .options-text,.otp-verification .options-text{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.login-div .options-text button,.sign-up-div .options-text button,.options-text button:hover{
+    background-color: indigo;
+    color: white;
+    width: 8rem;
+}
+.login-div .options-text button:hover,.sign-up-div .options-text button:hover,.otp-verification .options-text button:hover{
+    background-color: blue;
+    color: white;
+}
+
+/*for activating either the login or the sign-up div*/
+.login-div.active,.sign-up-div.active,.otp-verification.active{
+    display: flex;
+    visibility: visible;
+}
+
+/*special for OTP verification alone and alone*/
+.otp-verification h1{
+    color: white;
+    text-align: center;
+    border: 0.2rem solid green;
+    border-top: 0;
+    border-radius: 0.5rem;
+    background-color: blue;
+    user-select: none;
+}
+.otp-verification a{
+    color: rgba(150,0,255,1);
+}
+.otp-verification a:hover{
+    color: rgba(0,0,255,1);
+}
+.verification-intro{
+    width: 100%;
+    height: 4rem;
+    color: blue;
+    font-weight: bold;
+}
+.options-text a{
+    font-weight: bold;
+}
