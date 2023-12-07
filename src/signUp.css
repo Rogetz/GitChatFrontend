@@ -1,0 +1,213 @@
+:root{
+    --color-white: rgba(255,255,255,1);
+    --color-blue: rgba(0,0,255,1);
+    --color-dark: rgba(0,0,0,1);
+    --color-dark-faded: rgba(0,0,0,0.8);
+    --box-shadow-inputs: 0.01rem 0.01rem 0.25rem rgba(0,0,0,1);
+    --color-github: rgba(0,0,0,1);
+    --color-yellow: rgba(255,50,0,1);
+    --color-purple: rgba(255,0,200,1);
+}
+*{
+    box-sizing: border-box;
+    text-decoration: none;
+}
+body{
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+main{
+    width: 70%;
+    height: 90vh;
+    background-color: var(--color-white);
+    display: flex;
+    flex-direction: row;
+    /*wrap works with fixed width sizes for its child elements.*/
+    flex-wrap: wrap;
+    overflow: hidden;
+}
+
+.left-side{
+    /*partly a picture,partly some line of text */
+    width: 55%;
+    background-color: var(--color-blue);
+    height: 100%;
+    position: relative;
+}
+.left-side .bottom-right{
+    /*matches the theme of the login page.*/
+    width: 80%;
+    height: 50%;
+    background-color: var(--color-white);
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+.right-side{
+    width: 45%;
+    height: 100%;
+    padding: 0.5rem;
+    background-color: var(--color-white);
+    display: flex;
+    justify-content: center;
+}
+@media screen and (max-width: 991px) {
+    main{
+        width: 100%;   
+    }
+    main .left-side{
+        width: 50%;
+    }
+    main .right-side{
+        padding: 1rem;
+        width: 50%;
+    }
+}
+@media screen and (max-width: 576px) {
+    main{
+        width: 100%;
+        justify-content: center;
+    }
+    main .left-side{
+        width: 100%;
+        display: none;
+        visibility: hidden;
+    }
+    main .right-side{
+        padding: 1rem;
+        width: 80%;
+    }
+}
+@media screen and (max-width: 468px) {
+    main{
+        width: 100%;
+    }
+    main .left-side{
+        width: 100%;
+        display: none;
+        visibility: hidden;
+    }
+    main .right-side{
+        padding: 1rem;
+        width: 100%;
+    }
+}
+
+
+/*form div */
+.form-div{
+    width: 100%;
+    height: 100%;
+    font-size: 0.75rem;
+    font-weight: bolder;
+    padding: 0.5rem;
+}
+.form-div .form-title{
+    color: var(--color-dark);    
+    text-align: center;
+}
+.form-div .submit-btn{
+    font-size: 0.8rem;
+    font-weight: bolder;
+    width: 100%;
+    height: 2.3rem;
+    border-radius: 1rem;
+    outline: none;
+    border: none;
+    box-shadow: var(--box-shadow-inputs);
+    background-color: var(--color-blue);
+    color: var(--color-white);
+}
+.input-group{
+    width: 100%;
+    height: 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+.input-group label{
+    color: var(--color-blue);
+    font-weight: bolder;
+}
+.input-group input{
+    outline: none;
+    border: none;
+    width: 90%;
+    height: 100%;
+    font-weight: bold;
+}
+.input-group .input-with-icon{
+    width: 100%;
+    height: 2.1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.3rem;
+    font-weight: bold;
+    box-shadow: var(--box-shadow-inputs);
+}
+.or-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+.or-text{
+    margin: 0rem 0.2rem;
+    color: var(--color-dark-faded);
+}
+hr{
+    width: 100%;
+}
+button.third-party{
+    width: 100%;
+    height: 2.3rem;
+    border: none;
+    border-radius: 0.3rem;
+    margin: 0.5rem 0rem;
+    color: var(--color-dark);
+    font-weight: bolder;
+    background-color: var(--color-white);
+    box-shadow: var(--box-shadow-inputs);
+}
+div.check-group{
+    height: 2rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+label[for="remember-me"]{
+    color: var(--color-dark-faded);
+}
+.redirect-paragraph{
+    color: var(--color-dark-faded);
+}
+.redirect-paragraph a{
+    font-weight: bolder;
+}
+.third-party .fa-brands{
+    margin: 0rem 0.5rem;
+}
+.fa-facebook{
+    color: var(--color-blue);
+}
+.fa-github{
+    color: var(--color-github);
+}
+.fa-google{
+    color: var(--color-yellow);
+}
+.form-div .logo-title{
+    color: var(--color-blue);
+    text-align: center;
+}
+.form-div .first-letter{
+    color: var(--color-purple);
+}

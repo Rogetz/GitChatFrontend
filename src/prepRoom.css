@@ -1,0 +1,508 @@
+:root{
+    --color-white: rgba(255,255,255,1);
+    --color-white-faded: rgba(255,255,255,0.1);
+    --color-blue: rgba(0,0,255,1);
+    --color-dark: rgba(0,0,0,1);
+    --color-dark-faded: rgba(0,0,0,0.8);
+    --box-shadow-inputs: 0.01rem 0.01rem 0.25rem rgba(0,0,255,1);
+    --color-github: rgba(0,0,0,1);
+    --color-yellow: rgba(255,50,0,1);
+    --color-purple: rgba(255,0,200,1);
+    --color-red: rgba(255,0,0,1);  
+    --color-dark-muted: rgba(0,0,0,0.5);
+    --upper-div-padding: 0.5rem;
+    --upper-outer-padding: 2rem;
+    --color-green: rgba(0,255,0,1);
+    --color-green-faded: rgba(0,255,0,0.5);
+    --color-blue-faded: rgba(0,0,255,0.1);
+    --color-blue-mild-fade: rgba(0,0,255,0.7);
+    --color-blue-milder-fade: rgba(0,0,255,0.5);
+    --chat-room-box-shadow: 0.001rem 0.001rem 0.3rem blue; 
+}
+
+*{
+    box-sizing: border-box;
+    text-decoration: none;
+    overflow: hidden;
+}
+body{
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: rgba(0,0,255,0.8);
+}
+::-webkit-scrollbar{
+    background-color: transparent;
+    width: 0.7rem;
+}
+::-webkit-scrollbar-button{
+    background-color: transparent;
+    border-radius: 0rem;
+}
+::-webkit-scrollbar-thumb{
+    background-color: rgba(0,0,255,1);
+    border-radius: 0.3rem;
+}
+::-webkit-scrollbar-track{
+    background-color: rgba(255,255,255,1);
+    border-radius: 0.8rem;
+}
+::-webkit-scrollbar-track-piece{
+    background-color: rgba(0,0,255,0.1);
+}
+.chat-room{
+    width: 99%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(0,0,0,1);
+    border-radius: 1rem;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--chat-room-box-shadow);
+}
+.chat-room .upper-div{
+    width: 100%;
+    height: 5rem;
+    flex: 0,0,fixed;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 0.1rem solid var(--color-dark-muted);
+    user-select: none;
+}
+.chat-room .upper-div .fa-video{
+    padding: var(--upper-outer-padding);
+    color: var(--color-blue);
+}
+.chat-room .upper-div .upper-left-side{
+    min-width: 20rem;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.chat-room .upper-div .upper-left-side .project-div{
+    width: auto;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.chat-room .upper-div .upper-left-side .project-div div{
+    display: flex;
+    align-items: center;
+    color: var(--color-blue);
+    width: auto;
+    height: 100%;
+    padding: var(--upper-div-padding);
+}
+.chat-room .upper-div .upper-left-side .project-div .hiphen{
+    font-weight: bolder;
+    font-size: 1.3rem;
+}
+.project-title{
+    font-weight: bolder;
+}
+.task-title{
+    font-weight: bold;
+} 
+.chat-room .upper-div .upper-left-side .project-div .time-display{
+    width: auto;
+    height: auto;
+    padding: 0.3rem;
+    background-color: var(--color-blue-faded);
+    color: var(--color-blue);
+    border-radius: 2rem;
+    display: flex;
+    align-items: center;
+}
+.chat-room .upper-div .upper-right-side{
+    width: auto;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.chat-room .upper-div .upper-right-side .search-with-icon{
+    width: 15rem;
+    height: 2rem;
+    margin: var(--upper-div-padding);
+    border-radius: 1rem;
+    background-color: var(--color-blue-faded);
+    display: flex;
+    align-items: center;
+}
+.chat-room .upper-div .upper-right-side .search-with-icon .fa-magnifying-glass{
+    margin: 0rem 0.4rem;
+    color: var(--color-blue);
+}
+.chat-room .upper-div .upper-right-side .search-with-icon input{
+    border: none;
+    outline: none;
+    width: 90%;
+    background-color: transparent;
+}
+.chat-room .upper-div .upper-right-side .persona-profile{
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background-color: var(--color-blue-faded);
+}
+.chat-room .upper-div .upper-right-side .persona-profile .profile-picture{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.chat-room .upper-div .upper-right-side .drop-down-div{
+    margin: var(--upper-div-padding);
+}
+
+.chat-room .main-div{
+    width: 97%;
+    height: 83vh;
+    margin: 0.5rem 0rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+    background-color: transparent;
+    user-select: none;
+}
+/*using rems to avoid compression you know*/
+.chat-room .main-div .right-side{
+    flex: 0 0 56rem;
+    height: 100%;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    user-select: none;
+}
+.chat-room .main-div .left-side{
+    position: relative;
+    flex: 0 0 24rem;
+    height: 100%;
+    background-color: rgba(0,0,0,1);
+    display: flex;
+    user-select: none;
+    justify-content: right;
+    align-items: center;
+    border-radius: 1rem;
+    border-top-right-radius: 0rem;
+    border-bottom-right-radius: 1rem;
+    box-sizing: border-box;
+}
+.chat-room .main-div .left-side .top-option-menu{
+    position: absolute;
+    top: 2.5rem;
+    right: 0.5rem;
+    width: 95%;
+    display: flex; 
+    height: 2.5rem;
+    background-color: var(--color-white);
+    border-radius: 0.5rem;
+    padding: 0rem;
+}
+.chat-room .main-div .left-side .top-option-menu .option{
+    width: 50%;
+    height: 100%;
+    background-color: transparent;
+    color: var(--color-blue);
+    font-weight: bolder;
+    border-radius: 0.5rem;
+    border: none;
+}
+.chat-room .main-div .left-side .top-option-menu .option.active{
+    background-color: var(--color-blue);
+    color: var(--color-white);
+}
+.chat-room .main-div .left-side .botttom-chat-bar{
+    position: absolute;
+    bottom: 0.5rem;
+    left: 0.5rem;
+    width: 98%;
+    height: 3rem;
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem;
+    background-color: var(--color-white);
+    border-radius: 0.5rem;
+}
+.chat-room .main-div .left-side .botttom-chat-bar #chat-text{
+    width: 86%;
+    height: 100%;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: var(--color-blue);
+    font-weight: bold;
+}
+.chat-room .main-div .left-side .botttom-chat-bar #chat-text::placeholder{
+    color: var(--color-dark-faded);
+}
+.chat-room .main-div .left-side .chat-item{
+    position: relative;
+    margin-right: 28%;
+    margin-left: 0rem;
+    margin-bottom: 0.5rem;
+    word-wrap: break;
+    padding: 0.3rem;
+    padding-bottom: 0.7rem;
+    overflow: hidden;
+    width: 70%;
+    height: auto;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    border-radius: 0.5rem;
+    background-color: var(--color-blue-milder-fade);
+    color: var(--color-white);
+    font-weight: 500;
+}
+.date-class{
+    padding: 0.3rem;
+    width: fit-content;
+    color: rgba(0,0,255,0.7);
+    margin: auto;
+    font-weight: bold;
+    margin-top: 0.2rem;
+    margin-bottom: 0.3rem;
+    font-size: 0.9rem;
+    background-color: rgba(255,255,255,0.5);
+    border-radius: 1rem;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.chat-room .main-div .left-side .chat-items-wrapper{
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 5rem;
+    bottom: 4rem;
+    padding: 0.5rem;
+    overflow-y: auto;
+}
+.chat-room .main-div .left-side .chat-item.you{
+    margin-left: 28%;
+    margin-right: 0rem;
+    background-color: var(--color-blue-mild-fade);
+    color: var(--color-white);
+}
+/*continued using this even in react since the style was place in the fa-telegram-plane*/
+.chat-room .main-div .left-side .botttom-chat-bar .fa-telegram-plane{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 0.1rem;
+    border-radius: 0.5rem;
+    background-color: transparent;
+    color: var(--color-blue);
+    font-size: 1.8rem;
+}
+
+.chat-room .main-div .right-side .upper-videos{
+    width: 100%;
+    height: 5rem;
+    display: flex;
+    justify-content: space-between;
+}
+.chat-room .main-div .right-side .upper-videos .upper-video{
+    width: 9rem;
+    height: 100%;
+    border-radius: 0.5rem;
+    background-color: var(--color-blue-faded);
+}
+.chat-room .main-div .right-side .upper-videos .upper-video .little-video{
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
+.chat-room .main-div .right-side .main-video{
+    width: 100%;
+    height: 24rem;
+    display: flex;
+    justify-content: space-between;
+}
+.chat-room .main-div .right-side .main-video img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.chat-room .main-div .right-side .lower-menu-bar{
+    width: 100%;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.chat-room .main-div .right-side .main-video .task-summary{
+    position: relative;
+    width: 16rem;
+    height: 100%;
+    padding: 0.5rem;
+    background-color: var(--color-blue-faded);
+}
+.chat-room .main-div .right-side .main-video .task-summary .target-title{
+    width: 100%;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bold;
+    background-color: var(--color-blue-mild-fade);
+    border-radius: 0.5rem;
+    color: var(--color-white);
+}
+/*remeber for every finished target will be clicked to change it to clipboard check. */
+.chat-room .main-div .right-side .main-video .task-summary .target-wrappers{
+    width: 100%;
+    height: 83%;
+    margin-top: 1rem;
+    overflow-y: scroll;
+    background-color: transparent;
+}
+.chat-room .main-div .right-side .main-video .task-summary .target-wrappers .target{
+    padding: 0.5rem;
+    box-sizing: border-box;
+    margin: 0.5rem 0rem;
+    border-radius: 1rem;
+    background-color : var(--color-blue);
+}
+.chat-room .main-div .right-side .main-video .task-summary .target-wrappers .target .title{
+    width: 100%;
+    height: 2rem;
+    display: flex;
+    position: relative;
+    left: 0rem;
+    align-items: left;
+    font-weight: bold;
+}
+.chat-room .main-div .right-side .main-video .task-summary .target-wrappers .details{
+    width: 100%;
+    height: auto;
+    padding-bottom: 0.5rem;
+    box-sizing: border-box;
+    text-align: left;
+    color: var(--color-white);
+}
+.chat-room .main-div .right-side .main-video .task-summary .target-wrappers .target .title .actual-title{
+    background-color: var(--color-white);
+    padding: 0.5rem;
+    border-radius: 1rem;
+    color: var(--color-blue);
+}
+.chat-room .main-div .right-side .main-video .task-summary .target-wrappers .target .title .title-icon{
+    padding: 0.5rem;
+    color: var(--color-white);
+}
+.target-wrappers .target{
+    width: 100%;
+    height: auto;
+    position: relative;
+}
+.chat-room .main-div .right-side .main-video .actual-video{
+    position: relative;
+    width: 39.2rem;
+    height: 100%;
+    border-radius: 0.5rem;
+    background-color: var(--color-blue-faded);
+}
+.chat-room .main-div .right-side .lower-menu-bar .left-menu{
+    width: 9rem;
+    height: 100%;
+    padding: 0.5rem 0rem;
+    border-radius: 0.5rem;
+    background-color: rgba(255,255,255,1);
+}
+.chat-room .main-div .right-side .lower-menu-bar .left-menu .menu-text{
+    padding: 0rem 0.5rem;
+    width: 80%;
+    height: 100%;
+    color: var(--color-blue-mild-fade);
+    font-weight: bold;
+    border-right: 0.1rem solid var(--color-dark-faded);
+}
+.chat-room .main-div .right-side .lower-menu-bar .left-menu .menu-icon{
+    width: 20%;
+    height: 100%;
+    padding: 0rem 0.5rem;
+    color: var(--color-blue);
+}
+.chat-room .main-div .right-side .lower-menu-bar .center-menu{
+    width: auto;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    column-gap: 0.5rem;
+}
+.chat-room .main-div .right-side .lower-menu-bar .right-menu{
+    width: 7rem;
+    height: 100%;
+    background-color: var(--color-blue-faded);
+}
+.chat-room .main-div .right-side .lower-menu-bar .right-menu button{
+    color: red;
+    width: 100%;
+    height: 100%;
+    border-radius: 0.5rem;  
+    border: none;
+    outline: none;
+    color: var(--color-white);
+    font-weight: bold;
+    background-color: var(--color-red);  
+}
+.chat-room .main-div .right-side .main-video .name-tag{
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    background-color: var(--color-blue-faded);
+    border-radius: 0.5rem;
+    width: fit-content;
+    height: 2rem;
+    padding: 0.5rem;
+    color: var(--color-white);
+    z-index: 5;
+}
+.chat-room .main-div .right-side .lower-menu-bar .center-menu i{
+    padding: 0.5rem;
+    background-color: var(--color-blue-faded);
+    border-radius: 0.3rem;
+    color: var(--color-blue);
+}
+.chat-room .main-div .right-side .main-video .translation-tag{
+    position: absolute;
+    bottom: 1rem;
+    left: 2rem;
+    margin-right: 2rem;
+    max-width: 96%;
+    max-height: 2.5rem;
+    padding: 0rem 1rem;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    color: var(--color-white);
+    font-weight: 500;
+    overflow: hidden;
+    background-color: var(--color-blue-faded);
+    z-index: 5;
+}
+.status-icons{
+    position: absolute;
+    top: 0.2rem;
+    padding: 0rem 0.5rem;
+    width: 100%;
+    height: 2.2rem;
+    display: flex;
+    align-items: right;
+    justify-content: center;
+    text-align: right;
+}
+
+.time-tag{
+    font-size: 0.7rem;
+    position: relative;
+    right: 0.5rem;
+    bottom: 0.3rem;
+}
